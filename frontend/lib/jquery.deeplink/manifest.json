@@ -1,0 +1,1 @@
+{"jquery.deeplink": {"comp": ["js", "css"], "reqs": {"hash": ["jquery.hash"], "&": ["jquery.deparam", "jquery.update"]}}}

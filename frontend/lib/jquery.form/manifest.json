@@ -1,0 +1,1 @@
+{"jquery.form": {"comp": ["js", "css"], "reqs": [["jquery.", ["api", "markup", "update", "validate", "lightbox", "format"]]]}}

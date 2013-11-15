@@ -1,0 +1,1 @@
+{"datatable-bootstrap": {"comp": ["images", "css", "js"], "reqs": {"&": ["jquery.datatables", "twitter-bootstrap"]}}}

@@ -1,0 +1,20 @@
+{
+    "knewtonized_bootstrap": {
+        "comp": ["css", "js", "images"],
+        "reqs": {
+            ".": ["knewton_docs"]
+        }
+    },
+    "knewton_docs": {
+        "comp": ["css"],
+        "reqs": {"twitter-bootstrap": ["responsive"]}
+    },
+    "workspace": {
+        "comp": ["css", "images"],
+        "reqs": {".": ["knewtonized_bootstrap"]}
+    },
+    "appframe": {
+        "comp": ["css", "images"],
+        "reqs": {".": ["knewtonized_bootstrap"]}
+    }
+}

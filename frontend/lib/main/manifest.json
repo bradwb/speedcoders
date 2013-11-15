@@ -1,0 +1,39 @@
+{
+    "application": {
+        "comp": ["html", "css", "js"],
+        "reqs": {
+            ".": ["header", "index", "footer"],
+            "whitelabel": ["application"],
+            "&": ["jquery.localization", "datatable-bootstrap"]
+        }
+    },
+    "api" :{
+        "comp": ["js"],
+        "reqs": {
+            "whitelabel": ["application"],
+            "&": ["jquery.api"]
+        }
+    },
+    "header": {
+        "comp": ["html"],
+        "reqs": [
+            ["jquery.", ["localization"]]
+        ]
+    },
+    "@pages": {
+        "resources": ["index"],
+        "comp": ["html", "js"],
+        "reqs": {
+            ".": ["api"],
+            "&": [
+                ["jquery.", ["deeplink", "localization"]]
+            ]
+        }
+    },
+    "footer": {
+        "comp": ["html"],
+        "reqs": [
+            ["jquery.", ["localization"]]
+        ]
+    }
+}

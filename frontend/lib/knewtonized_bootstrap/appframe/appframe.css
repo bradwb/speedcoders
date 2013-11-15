@@ -1,0 +1,615 @@
+body.framed-application {
+	background: #F4F4F4;
+	overflow: hidden;
+}
+
+.framed-application #header-shade {
+	position: absolute;
+	z-index: 999;
+	background: #FFF;
+	top: 200px;
+	display: none;
+}
+
+.framed-application #info-shade {
+	position: absolute;
+	z-index: 1000;
+	top: 200px;
+	display: none;
+	background: url(images/info-shade-background.png);
+}
+
+.framed-application #info-shade .shade-screen {
+	height: 100%;
+	width: 100%;
+}
+
+.framed-application .footer-wrapper {
+	padding: 0 10px;
+}
+
+.framed-application .toggle-info {
+	background: url(images/footer-info.png) no-repeat center center;
+	height: 20px;
+	width: 20px;
+	display: block;
+}
+
+.framed-application.info-shade-open .toggle-info {
+	opacity: 0.5;
+	filter: Alpha(Opacity=50);
+}
+
+.framed-application .paginators a {
+	width: 12px;
+	height: 13px;
+	display: block;
+	float: left;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.framed-application .paginators .next {
+	background-image: url(images/footer-arrow-right.png);
+}
+
+.framed-application .paginators .back {
+	background-image: url(images/footer-arrow-left.png);
+	margin-right: 15px;
+}
+
+.framed-application .app-wrapper {
+	margin: 0 auto;
+}
+
+.framed-application .simple-frame {
+	padding: 20px;
+}
+
+.framed-application #wrapper {
+	overflow: hidden;
+	position: relative;
+	z-index: 500;
+	padding: 0 20px 40px;
+	margin: 0 auto;
+}
+
+.framed-application.header-shade-open  #wrapper {
+	z-index: 2000;
+}
+
+.framed-application #body {
+	margin-top: -15px;
+	overflow: hidden;
+}
+
+.framed-application #content-header {
+	width: 100%;
+	padding-top: 20px;
+	height: 37px;
+}
+
+.framed-application #fixed-headers {
+	background: url(images/fixed-header.png) no-repeat center center;
+}
+
+.framed-application #content-footer {
+	width: 100%;
+	height: 70px;
+}
+
+.framed-application #column-wrapper,
+.framed-application #content-wrapper,
+.framed-application #body-wrapper {
+	height: 100%;
+}
+
+.framed-application .content-area {
+	overflow: auto;
+	padding-right: 20px;
+}
+
+.framed-application #application-left,
+.framed-application #application-right {
+	border: 1px solid #FFF;
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.framed-application .application-col {
+	height: 100%;
+	margin-left: 0;
+}
+
+.framed-application #application {
+	background: #F3F4F4 url(images/app-background.png) repeat-x;
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.framed-application .navbar-inner {
+	background-color: #FFF;
+	padding-top: 10px;
+	padding-bottom: 25px;
+	border: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.framed-application #header-shadow,
+.framed-application .navbar-inner {
+	border-top: #F3F3F3;
+	background-image: url(images/header-dropshadow.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+}
+
+.framed-application #header-shadow {
+	z-index: 5;
+	height: 16px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin-bottom: -15px;
+}
+
+.framed-application #subheader {
+	background: #FEFFFF;
+	height: 125px;
+	width: 100%;
+	position: relative;
+	margin-bottom: 15px;
+	z-index: 50;
+}
+
+.framed-application #subheader .toggle-shade {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 30px;
+	height: 15px;
+	margin: 0 0 -14px -15px;
+	background: url(images/pull.png) no-repeat center center;
+}
+
+.framed-application.header-shade-open #subheader .toggle-shade {
+	background: none;
+}
+
+
+.framed-application #header-shade .toggle-shade {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 30px;
+	height: 15px;
+	margin: -14px 0 0 -15px;
+	background: url(images/push.png) no-repeat center center;
+}
+
+.framed-application #footer {
+	position: absolute;
+	left: 0;
+	z-index: 1000;
+	height: 40px;
+	width: 100%;
+	background: #282828; /* Old browsers */
+	background:    -moz-linear-gradient(45deg, #282828 50%, #221F1F 50%); /* FF3.6+ */
+	background: -webkit-linear-gradient(45deg, #282828 50%, #221F1F 50%); /* Chrome10+,Safari5.1+ */
+	background:      -o-linear-gradient(45deg, #282828 50%, #221F1F 50%); /* Opera 11.10+ */
+	background:     -ms-linear-gradient(45deg, #282828 50%, #221F1F 50%); /* IE10+ */
+	background:         linear-gradient(45deg, #282828 50%, #221F1F 50%); /* W3C */
+}
+
+.framed-application .table th,
+.framed-application .table td {
+	border-top: 1px solid #E7E7E7;
+}
+
+.framed-application .table th + th,
+.framed-application .table td + td {
+	border-left: 1px solid #E7E7E7;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+}
+
+/* iPads 1-2 (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+}
+
+/* iPads 1-2 (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+	.framed-application #wrapper {
+		height: 728px;
+		width: 984px;
+	}
+
+	.framed-application .app-wrapper {
+		width: 984px;
+	}
+
+	.framed-application #application {
+		background-position: left 0;
+		height: 768px;
+		margin-top: -384px;
+	}
+
+	.framed-application #header-shade {
+		height: 568px;
+	}
+
+	.framed-application #info-shade {
+		height: 528px;
+	}
+
+	/* #app height - 215(header height) - 25(fotter height) */
+	.framed-application .frame-viewport,
+	.framed-application #body {
+		height: 527px;
+	}
+
+	/* #body height - 127px (content footer + content header) */
+	.framed-application .content-height,
+	.framed-application .content-area {
+		height: 400px;
+	}
+
+	/* content-height -30px */
+	.framed-application .inner-content-height {
+		height: 370px;
+	}
+
+	.framed-application #footer {
+		top: 728px;
+	}
+}
+
+/* iPads 1-2 (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+	.framed-application #wrapper {
+		height: 984px;
+		width: 728px;
+	}
+
+	.framed-application .app-wrapper {
+		width: 728px;
+	}
+
+	.framed-application #application {
+		background-position: left 225px;
+		height: 1024px;
+		margin-top: -512px;
+	}
+
+	.framed-application #header-shade {
+		height: 824px;
+	}
+
+	.framed-application #info-shade {
+		height: 788px;
+	}
+
+	/* #app height - 1 - 215(header height) - 25(fotter height) */
+	.framed-application .frame-viewport,
+	.framed-application #body {
+		height: 783px;
+	}
+
+	/* #body height - 127px (content footer + content header) */
+	.framed-application .content-height,
+	.framed-application .content-area {
+		height: 656px;
+	}
+
+	/* content-height -30px */
+	.framed-application .inner-content-height {
+		height: 626px;
+	}
+
+	.framed-application #footer {
+		top: 984px;
+	}
+}
+
+/* iPads 3+ (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+}
+
+/* iPads 3+ (landscape) ----------- */
+@media only screen
+and (min-device-width : 1536px)
+and (max-device-width : 2048px)
+and (orientation : landscape) {
+	.framed-application #wrapper {
+		height: 1496px;
+		width: 2008px;
+	}
+
+	.framed-application .app-wrapper {
+		width: 2008px;
+	}
+
+	.framed-application #application {
+		background-position: left 776px;
+		height: 1536px;
+		margin-top: -768px;
+	}
+
+	.framed-application #header-shade {
+		height: 1336px;
+	}
+
+	.framed-application #info-shade {
+		height: 1296px;
+	}
+
+	/* #app height - 1 - 215(header height) - 25(fotter height) */
+	.framed-application .frame-viewport,
+	.framed-application #body {
+		height: 1295px;
+	}
+
+	/* #body height - 127px (content footer + content header) */
+	.framed-application .content-height,
+	.framed-application .content-area {
+		height: 1168px;
+	}
+
+	/* content-height -30px */
+	.framed-application .inner-content-height {
+		height: 1138px;
+	}
+
+	.framed-application #footer {
+		height: 1496px;
+	}
+}
+
+/* iPads 3+ (portrait) ----------- */
+@media only screen
+and (min-device-width : 1536px)
+and (max-device-width : 2048px)
+and (orientation : portrait) {
+	.framed-application #wrapper {
+		height: 2008px;
+		width: 1488px;
+	}
+
+	.framed-application .app-wrapper {
+		width: 1488px;
+	}
+
+	.framed-application #application {
+		background-position: left 1288px;
+		height: 2048px;
+		margin-top: -1024px;
+	}
+
+	.framed-application #header-shade {
+		height: 1848px;
+	}
+
+	.framed-application #info-shade {
+		height: 1808px;
+	}
+
+	/* #app height - 1 - 215(header height) - 25(fotter height) */
+	.framed-application .frame-viewport,
+	.framed-application #body {
+		height: 1807px;
+	}
+
+	/* #body height - 127px (content footer + content header) */
+	.framed-application .content-height,
+	.framed-application .content-area {
+		height: 1680px;
+	}
+
+	/* content-height -30px */
+	.framed-application .inner-content-height {
+		height: 1640px;
+	}
+
+	.framed-application #footer {
+		top: 2008px;
+	}
+}
+
+/* Desktops and laptops (small) ----------- */
+@media only screen
+and (min-width : 1px) {
+	.framed-application .app-wrapper,
+	.framed-application #wrapper {
+		width: 984px;
+	}
+}
+
+/* Desktops and laptops (standard) ----------- */
+@media only screen
+and (min-width : 1280px) {
+	.framed-application .app-wrapper,
+	.framed-application #wrapper {
+		width: 1240px;
+	}
+}
+
+/* Desktops and laptops (larger) ----------- */
+@media only screen
+and (min-width : 1366px) {
+	.framed-application .app-wrapper,
+	.framed-application #wrapper {
+		width: 1326px;
+	}
+}
+
+/* Desktops and laptops (small) ----------- */
+@media only screen
+and (min-height : 1px) {
+	.framed-application #wrapper {
+		height: 728px;
+	}
+
+	.framed-application #application {
+		background-position: left 0;
+		height: 768px;
+		margin-top: -384px;
+	}
+
+	.framed-application #header-shade {
+		height: 568px;
+	}
+
+	.framed-application #info-shade {
+		height: 528px;
+	}
+
+	/* #app height - 1 - 215(header height) - 25(fotter height) */
+	.framed-application .frame-viewport,
+	.framed-application #body {
+		height: 527px;
+	}
+
+	/* #body height - 127px (content footer + content header) */
+	.framed-application .content-height,
+	.framed-application .content-area {
+		height: 400px;
+	}
+
+	/* content-height -30px */
+	.framed-application .inner-content-height {
+		height: 370px;
+	}
+
+	.framed-application #footer {
+		top: 728px;
+	}
+}
+
+/* Desktops and laptops (standard) ----------- */
+@media only screen
+and (min-height: 900px) {
+	.framed-application #wrapper {
+		height: 860px;
+	}
+
+	.framed-application #application {
+		background-position: left 100px;
+		height: 900px;
+		margin-top: -450px;
+	}
+
+	.framed-application #header-shade {
+		height: 700px;
+	}
+
+	.framed-application #info-shade {
+		height: 660px;
+	}
+
+	/* #app height - 1 - 215(header height) - 25(fotter height) */
+	.framed-application .frame-viewport,
+	.framed-application #body {
+		height: 659px;
+	}
+
+	/* #body height - 127px (content footer + content header) */
+	.framed-application .content-height,
+	.framed-application .content-area {
+		height: 532px;
+	}
+
+	/* content-height -30px */
+	.framed-application .inner-content-height {
+		height: 502px;
+	}
+
+	.framed-application #footer {
+		top: 860px;
+	}
+}
+
+/* Desktops and laptops (larger) ----------- */
+@media only screen
+and (min-height: 1024px) {
+	.framed-application #wrapper {
+		height: 984px;
+	}
+
+	.framed-application #application {
+		background-position: left 224px;
+		height: 1024px;
+		margin-top: -512px;
+	}
+
+	.framed-application #header-shade {
+		height: 824px;
+	}
+
+	.framed-application #info-shade {
+		height: 784px;
+	}
+
+	/* #app height - 1 - 215(header height) - 25(fotter height) */
+	.framed-application .frame-viewport,
+	.framed-application #body {
+		height: 783px;
+	}
+
+	/* #body height - 127px (content footer + content header) */
+	.framed-application .content-height,
+	.framed-application .content-area {
+		height: 656px;
+	}
+
+	/* content-height -30px */
+	.framed-application .inner-content-height {
+		height: 626px;
+	}
+
+	.framed-application #footer {
+		top: 984px;
+	}
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+}
+

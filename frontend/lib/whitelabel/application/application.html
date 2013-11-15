@@ -1,0 +1,195 @@
+<div id="application">
+    <div id="wrapper">
+        <div id="header" class="application-pane">
+            <sect class="whitelabel-header"></sect>
+            <div id="header-shadow"></div>
+        </div>
+        <div id="header-shade" class="app-wrapper">
+            <sect class="whitelabel-header-shade"></sect>
+            <div id="header-shade-loading" class="hide loading-icon"></div>
+            <a href="#" class="toggle-shade"></a>
+        </div>
+        <div id="info-shade" class="app-wrapper">
+            <sect class="whitelabel-footer-shade"></sect>
+        </div>
+        <div id="body" class="wl-container container">
+            <div class="application-loading">
+                <sect class="whitelabel-about-header"></sect>
+                <component id="whitelabel-authentication">
+                    <def class="about-application">
+                        <sect class="whitelabel-about-application"></sect>
+                    </def>
+                    <def class="noauth-text">
+                        <sect class="whitelabel-noauth-text"></sect>
+                    </def>
+                    <def class="login-section-header">
+                        <sect class="whitelabel-login-header"></sect>
+                    </def>
+                    <def class="login-section-footer">
+                        <sect class="whitelabel-login-footer"></sect>
+                    </def>
+                </component>
+                <div id="application-loading" class="loading-icon"></div>
+            </div>
+            <sect class="whitelabel-inline-header"></sect>
+            <div id="body-wrapper">
+                <div id="column-wrapper">
+                    <div id="application-left"
+                            class="application-col application-pane">
+                        <sect class="whitelabel-pre-body"></sect>
+                    </div>
+                    <div id="application-body"
+                            class="application-pane application-col">
+                        <div id="loading" class="loading-icon content-area"></div>
+                        <div id="content-header">
+                            <sect class="whitelabel-content-header"></sect>
+                        </div>
+                        <div id="error" lang=":error"
+                                class="content-area container wl-container">
+                            <sect class="whitelabel-errors"></sect>
+                            <div class="classic-errors">
+                                <h2 lang="+title"></h2>
+                                <div class="wl-row row">
+                                    <h4 class="span8">
+                                        <span class="error_message"></span>&nbsp;
+                                        <span lang="+pleasant_encouragement"></span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="content" class="content-area">
+                            <sect class="whitelabel-application"></sect>
+                            <component id="whitelabel-crudder"></component>
+                        </div>
+                        <div id="content-footer">
+                            <sect class="whitelabel-content-footer"></sect>
+                        </div>
+                    </div>
+                    <div id="application-right"
+                            class="application-col application-pane">
+                        <sect class="whitelabel-post-body"></sect>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="application-pane">
+        <sect class="whitelabel-footer"></sect>
+    </div>
+    <div class="hide">
+        <div data-template-def="inplace-trigger" class="inplace-trigger">
+            <div class="untriggered">
+                <a class="trigger-button" href="#"></a>
+            </div>
+            <div class="hide triggered"></div>
+        </div>
+        <div class="framed-table border" data-template-def="framed-table">
+            <div class="update-screen loading-icon hide"></div>
+            <div class="navbar subnav">
+                <div class="navbar-inner">
+                    <h4 class="pull-left title space-left"></h4>
+                    <div class="pull-right inplace-wrapper">
+                        <div data-instance="inplace-trigger"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="no-content hide space"></div>
+            <div class="content-wrapper">
+                <div class="extra"></div>
+                <table class="table">
+                    <thead>
+                        <tr class="table-header" data-template="*">
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="refresh-row-wrapper border-top container-fluid">
+                    <div class="row-fluid refresher-row">
+                        <div class="span12">
+                            <div class="pull-right">
+                                <h6 class="pull-left muted last-refreshed">
+                                    <span lang="-last_updated"></span>
+                                    <span class="updated_on"></span>
+                                </h6>
+                                <a href="#" class="refresher">
+                                    <i class="icon-refresh"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-template-def="modal-workspace"
+                class="modal modal-window hide fade workspace"
+                role="dialog">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">&times;</button>
+                <div class="header-content"></div>
+            </div>
+            <div class="modal-warning alert alert-warning hide clearfix">
+                <div class="pull-left warning-message"></div>
+            </div>
+            <div class="modal-confirm alert alert-warning hide clearfix"
+                    lang=".modal_confirm">
+                <div class="pull-right">
+                    <a href="#" class="cancel-close btn"
+                            lang="+cancel_close"></a>
+                    <a href="#" class="confirm-close btn btn-danger"
+                            lang="+confirm_close"></a>
+                </div>
+                <div class="pull-left confirm-message" lang="+unsaved_msg"></div>
+            </div>
+            <div class="modal-body">
+                <div class="body-content"></div>
+            </div>
+            <div class="modal-footer">
+                <div class="footer-content"></div>
+            </div>
+        </div>
+        <div data-template-def="vertical-center" class="vertical-center-outer">
+            <div class="vertical-center-middle">
+                <div class="vertical-center-inner inject-content"></div>
+            </div>
+        </div>
+        <div data-template-def="horizontal-center"
+                class="centered-block-outer">
+            <div class="centered-block-middle">
+                <div class="centered-block-inner inject-content"></div>
+            </div>
+        </div>
+        <div data-template-def="relative-center" class="vertical-center-outer">
+            <div class="vertical-center-middle">
+                <div class="vertical-center-inner">
+                    <div data-instance="horizontal-center"></div>
+                </div>
+            </div>
+        </div>
+        <ul class="collapse-tree" data-template-def="collapse-tree"
+                data-template="collapse-subtree"></ul>
+        <li class="subtree open" data-template-def="collapse-subtree">
+            <div class="tree-arrow tree-header clearfix"></div>
+            <div class="subtree-contents inject-content"
+                    data-instance="collapse-tree"></div>
+        </li>
+        <div data-template-def="lightbox-workspace"
+                data-lightbox-flags="static"
+                data-lightbox-bodyclass="lightbox-workspace"
+                class="lightbox workspace nopad fixed-body">
+            <div class="lightbox-workspace-header header-content"></div>
+            <div class="lightbox-workspace-body body-content scrollable"></div>
+            <div class="lightbox-workspace-footer">
+                <div class="container-gutter">
+                    <div class="vertical-center-outer">
+                        <div class="vertical-center-middle">
+                            <div class="vertical-center-inner">
+                                <div class="footer-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

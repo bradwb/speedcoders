@@ -1,0 +1,257 @@
+/* Application
+----------------------------------*/
+#authentication, .application-pane {
+    display: none;
+}
+
+.loading-icon {
+    height: 325px;
+    background: url(images/ellipses.gif) no-repeat center center;
+}
+
+#header-shade-loading {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background-color: #FFF;
+    top: 0;
+    left: 0;
+}
+
+.grail-columns #header {
+    position: relative;
+    z-index: 1000;
+}
+
+.grail-columns #body {
+    position: relative;
+    z-index: 500;
+    clear: both;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+.grail-columns #body-wrapper {
+    float: left;
+    width: 200%;
+    margin-left: -200px;
+    position: relative;
+    right: 100%;
+}
+
+.grail-columns #column-wrapper {
+    float: left;
+    width: 100%;
+    margin-left: -50%;
+    position: relative;
+    left: 400px;
+}
+
+.grail-columns #content-wrapper {
+    float: left;
+    width: 50%;
+    position: relative;
+    right: 200px;
+}
+
+.grail-columns #application-body {
+    margin: 0 215px;
+    position: relative;
+    left: 200%;
+    overflow: hidden;
+}
+
+.grail-columns #application-left {
+    float: right;
+    width: 170px;
+    position: relative;
+}
+
+.grail-columns #application-right {
+    float: right;
+    width: 170px;
+    position: relative;
+    left: 50%;
+}
+
+#login {
+    width: 100%;
+}
+
+/* DataTables
+----------------------------------*/
+
+.border .dataTables_info {
+    padding: 15px 0 5px 30px;
+}
+.border .dataTables_paginate {
+    margin: 15px 30px 5px 0;
+}
+.border .dataTables_length {
+    margin: 5px 0 0 30px;
+}
+.border .dataTables_filter {
+    margin: 0 30px 0 0;
+}
+.table-scroller {
+    margin-top: 15px;
+    padding-right: 15px;
+    overflow: auto;
+    max-height: 415px;
+}
+.table-scroller .table {
+    border-right: 1px solid #CCC;
+    margin-bottom: 0 !important;
+}
+.border table.table thead tr,
+.border table.table thead {
+    width: 100%;
+}
+.border .row-fluid + .table-scroller,
+.border .table-scroller ~ .row-fluid {
+    border-top: 1px solid #CCC;
+}
+.last-refreshed {
+    margin: 6px 8px 6px 0;
+}
+.refresher-row {
+    padding: 10px 0;
+}
+
+/* Framed table
+----------------------------------*/
+.framed-table {
+    position: relative;
+}
+.framed-table .navbar {
+    margin-bottom: 0;
+}
+.framed-table .content-wrapper {
+    margin-top: 15px;
+}
+.framed-table .update-screen {
+    border: 1px solid #CCC;
+    margin: -1px 0 0 -1px;
+}
+.update-screen {
+    background-color: #EEE;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.75;
+    filter: Alpha(Opacity=75);
+    height: 100%;
+    width: 100%;
+    z-index: 500;
+}
+.update-screen.dark {
+    background-color: #000;
+}
+
+/* Inplace Trigger
+----------------------------------*/
+.inplace-trigger.inplace-trigger-rect {
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+
+.inplace-trigger.inplace-trigger-rect .untriggered {
+    padding: 18px 8px;
+}
+
+.inplace-trigger.inplace-trigger-rect .triggered {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    border-top: 1px solid #CCC;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.inplace-trigger.inplace-trigger-rect.with-bottom .triggered {
+    border-bottom: 1px solid #CCC;
+}
+
+.inplace-trigger.inplace-trigger-rect .triggered h5 {
+    margin: 0 0 8px 8px;
+}
+
+/* Psuedo input
+----------------------------------*/
+body .pseudo-input {
+    white-space: nowrap;
+}
+
+/* Collapsetree
+----------------------------------*/
+.collapse-tree {
+    margin-left: 0;
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.collapse-tree .tree-header {
+    padding-left: 10px;
+}
+
+.collapse-tree .tree-arrow {
+    cursor: pointer;
+    padding-left: 20px;
+    background-image: url(images/closed-arrow.png);
+    background-repeat: no-repeat;
+    background-position: left 12px;
+}
+
+.subtree {
+    margin-top: 13px;
+}
+
+.open > .tree-arrow {
+    background-image: url(images/open-arrow.png);
+}
+
+.collapse-tree .subtree-contents {
+    margin: 0px 0 0 20px;
+}
+
+.collapse-tree .subtree-contents {
+    display: none;
+}
+
+.collapse-tree .subtree.open > .subtree-contents {
+    display: block;
+}
+
+/* Auto resize frame
+----------------------------------*/
+.auto-resizable-iframe {
+  max-width: 420px;
+  margin: 0px auto;
+}
+
+.auto-resizable-iframe > div {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0px;
+}
+
+.auto-resizable-iframe iframe {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+/* custom errors
+----------------------------------*/
+.custom-errors .classic-errors {
+    display: none;
+}
+

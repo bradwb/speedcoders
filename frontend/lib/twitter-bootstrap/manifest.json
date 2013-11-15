@@ -1,0 +1,1 @@
+{"responsive": {"comp": ["css"], "root": "bootstrap", "packaged": "zip", "reqs": {"&": ["twitter-bootstrap"]}}, "twitter-bootstrap": {"packaged": "zip", "cssImageFix": "../img", "comp": ["images", "css", "js"], "root": "bootstrap", "reqs": ["jquery"]}}

@@ -1,0 +1,23 @@
+<div class="route-pane exact" data-route="#/">
+    <div id="game" class="clearfix">
+        <div id="spectator-view" class="hide">
+            {% for i in [0, 1, 2, 3] %}
+            <div class="coder-square player-{{i}}">
+                <div class="coder-col">
+                    <h3 class="username">Username</h3>
+                    <div class="score">
+                        <h4 class="score-val">8</h4>
+                        <label>Losses</label>
+                    </div>
+                    <div class="score">
+                        <h4 class="score-val">20</h4>
+                        <label>Lorem</label>
+                    </div>
+                    <h3 class="timer">00:00:00</h3>
+                </div>
+                <h6 class="coder-text pull-left"></h6>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

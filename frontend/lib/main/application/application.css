@@ -1,0 +1,99 @@
+/* Custom application styles here. Try and keep these to a minimum. */
+
+#game {
+    width: 1860px;
+    height: 1080px;
+    background: #f4f4f4;
+    padding: 0 30px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -960px;
+}
+
+.coder-square {
+    float: left;
+    background: #FFF;
+    width: 927px;
+    height: 537px;
+    border: 1px solid #f4f4f4;
+}
+
+.coder-square.player-0 {
+    border-width: 0 3px 3px 0;
+}
+.coder-square.player-1 {
+    border-width: 0 0 3px 3px;
+}
+.coder-square.player-2 {
+    border-width: 3px 3px 0 0;
+}
+.coder-square.player-3 {
+    border-width: 3px 0 0 3px;
+}
+
+.coder-col {
+    width: 200px;
+    height: 537px;
+    padding-top: 220px;
+    box-sizing: border-box;
+    background-position: center 30px;
+    background-repeat: no-repeat;
+    background-image: url(images/placeholder-person.png);
+    text-align: center;
+}
+.player-0 .coder-col,
+.player-2 .coder-col {
+    float: right;
+    border-left: 6px solid #f4f4f4;
+}
+.player-1 .coder-col,
+.player-3 .coder-col {
+    float: left;
+    border-right: 6px solid #f4f4f4;
+}
+
+.username {
+    margin-bottom: 0;
+}
+
+.score-val {
+    margin-top: 0;
+    letter-spacing: 0;
+    font-weight: 100;
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.score {
+    padding: 5px 0;
+}
+
+.timer {
+    background: #000;
+    font-size: 30px;
+    line-height: 36px;
+    color: #FFF;
+    padding: 10px 15px;
+    margin: 5px auto;
+    display: inline-block;
+}
+
+.coder-text {
+    font-size: 30px;
+    line-height: 50px;
+    width: 725px;
+    height: 527px;
+    box-sizing: border-box;
+    padding: 30px;
+    overflow: auto;
+}
+
+.coder-text.zomg {
+    color: #f05400;
+    font-size: 72px;
+    background: #fd58af;
+}
+
+
+

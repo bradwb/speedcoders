@@ -1,0 +1,26 @@
+{
+    "application": {
+        "comp": ["html", "js", "css", "images"],
+        "reqs": {
+            ".": ["authentication"],
+            "knewtonized_bootstrap": ["appframe", "workspace"],
+            "&": ["modernizr", "twitter-bootstrap-wizard", "file-uploader",
+                    ["jquery.", ["deeplink", "localization", "format",
+                            "divplaceholder"]]]
+        }
+    },
+    "authentication": {
+        "comp": ["html", "js"],
+        "reqs": [["jquery.", ["api", "deeplink", "form"]], "store"]
+    },
+    "crudder": {
+        "comp": ["html", "js"],
+        "reqs": {
+            "&":  [
+                ["jquery.", ["api", "markup", "localization", "deeplink",
+                    "form", "update"]],
+                "store", "datatable-bootstrap"
+            ]
+        }
+    }
+}

@@ -1,0 +1,45 @@
+.spawner.btn-toolbar {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.field-spawn-container + .field-spawn-container {
+    margin-top: 15px;
+}
+
+.spawn-container.spawn-bottom [class*="span"] {
+    display: table-cell;
+    vertical-align: bottom;
+    float: none;
+}
+
+.spawn-container.spawn-bottom .spawner .btn-group {
+    margin-bottom: -9px;
+}
+
+.form-horizontal .error-wrapper {
+    float: left;
+    width: 160px;
+}
+
+.form-horizontal .error-wrapper .label {
+    float: right;
+}
+
+.independent-errors .form-field-wrapper {
+    position: relative;
+}
+
+.independent-errors .validation-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 6px 0 0 -160px;
+}
+
+.independent-errors .validation-error.dependent-error {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+}

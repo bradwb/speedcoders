@@ -1,0 +1,97 @@
+/* Global
+----------------------------------*/
+html, body {
+    height: 100%;
+}
+
+body.clamp {
+    overflow: hidden;
+}
+
+/* Lightbox: Height ordering
+----------------------------------*/
+#lightbox-overlay {
+    z-index: 1000;
+    position: fixed;
+    margin-left: -9999px;
+}
+
+#lightbox-screen {
+    z-index: 1;
+    position: absolute;
+}
+
+#lightbox {
+    z-index: 10;
+    position: absolute;
+}
+
+/* Lightbox: Display
+----------------------------------*/
+#lightbox-overlay.active {
+    margin-left: 0;
+}
+
+#lightbox-overlay,
+#lightbox-screen {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#lightbox-screen {
+    background: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+#lightbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#lightbox-loading {
+    display: block;
+    width: 325px;
+    height: 325px;
+    background: url(images/loading.gif) no-repeat center center;
+}
+
+#lightbox .lightbox {
+    display: none;
+    margin: 0;
+}
+
+#lightbox-header .close {
+    font-size: 24px;
+    margin-right: -14px;
+    margin-top: -4px;
+    color: #FFF;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+#lightbox-header .close:hover {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+
+#lightbox-loading,
+#lightbox-content {
+    background-color: #FFF;
+}
+
+#lightbox-content > * {
+    padding: 15px;
+}
+
+#lightbox-content > .nopad {
+    padding: 0;
+}
+
+#lightbox-header.loading .close {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}

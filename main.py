@@ -52,7 +52,9 @@ class BaseHandler(webapp2.RequestHandler):
 		if user:
 			return user
 		else:
-			self.redirect(users.create_login_url(self.request.uri))
+			self.write_json(json.dumps({"url": users.create_login_url("/")}))
+			self.response.set_status(401)
+			return False
 
 	def write_json(self, json_str):
 		self.response.write(json_str)
@@ -62,6 +64,8 @@ class BaseHandler(webapp2.RequestHandler):
 class CodeHandler(BaseHandler):
 	def get(self):
 		user = self.login()
+		if not user:
+			return;
 
 		challenge = GAME.get_challenge(user.nickname())
 
@@ -69,6 +73,8 @@ class CodeHandler(BaseHandler):
 
 	def post(self, seat_num):
 		user = self.login()
+		if not user:
+			return;
 
 		post_data = json.loads(self.request.body)
 
@@ -83,6 +89,8 @@ class CodeHandler(BaseHandler):
 class SeatHandler(BaseHandler):
 	def post(self, seat_num):
 		user = self.login()
+		if not user:
+			return;
 
 		post_data = json.loads(self.request.body)
 
@@ -101,12 +109,16 @@ class SeatHandler(BaseHandler):
 
 class MainHandler(BaseHandler):
 	def get(self):
-		self.login()
+		user = self.login()
+		if not user:
+			return;
 
 		self.write_json(GAME.to_json())
 
 	def post(self):
 		self.login()
+		if not user:
+			return;
 
 		post_data = json.loads(self.request.body)
 
