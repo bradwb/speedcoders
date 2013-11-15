@@ -4,7 +4,7 @@ import json
 import random
 import threading
 
-import exceptions as exc
+import sc_exceptions as exc
 import generator
 
 # game states

@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import exceptions as exc
+import sc_exceptions as exc
 import game
 
 import json
