@@ -1,0 +1,8 @@
+{
+    "exposed_assets": [
+        "index.html",
+        "application.min.js",
+        "application.min.css",
+        "localization/"
+    ]
+}

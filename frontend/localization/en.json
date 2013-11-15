@@ -1,0 +1,23 @@
+{
+    "common": {
+        "yes": "Yes",
+        "no": "No",
+        "back": "<i class='icon-chevron-left icon-white'></i>&nbsp;<span>Back to list</span>",
+        "select_placeholder": "Select...",
+        "search": "Search",
+        "records": "Records",
+        "search_table": "<i class='icon-search'></i>",
+        "empty_table": "No results to display.",
+        "zero_table": "All results filtered out; change filters to see data.",
+        "create": "Create new",
+        "revise": "Save changes",
+        "confirm_delete": "Delete record",
+        "remove": "Confirm delete",
+        "cancel": "Cancel"
+    },
+    "error": {
+        "title": "Well, that's broken.",
+        "pleasant_encouragement": "Sorry! :(",
+        "not_found": "We couldn't find the page you were looking for."
+    }
+}

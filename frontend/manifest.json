@@ -1,0 +1,9 @@
+{
+    "embed": true,
+    "includes": {
+        "main": ["application"]
+    },
+    "package_scripts": [
+        "localization/en-US.json"
+    ]
+}

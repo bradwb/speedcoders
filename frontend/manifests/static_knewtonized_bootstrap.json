@@ -1,0 +1,19 @@
+{
+    "*": {
+        "uri": "git.knewton.net:/lib/javascript/knewtonized_bootstrap"
+    },
+    "knewtonized_bootstrap": {
+        "comp": {"css": "knewtonized_bootstrap/knewtonized_bootstrap", "images/": "knewtonized_bootstrap/images"},
+        "reqs": {
+            ".": ["knewton_docs"]
+        }
+    },
+    "knewton_docs": {
+        "comp": {"css": "knewton_docs/knewton_docs"},
+        "reqs": {"&": ["twitter-bootstrap"]}
+    },
+    "appframe": {
+        "comp": {"css": "appframe/appframe"},
+        "reqs": {".": ["knewtonized_bootstrap"]}
+    }
+}
