@@ -29,7 +29,16 @@ class BaseHandler(webapp2.RequestHandler):
 		if isinstance(exception, webapp2.HTTPException):
 			self.response.write(str(exception))
 			self.response.set_status(exception.code)
+		elif isinstance(exception, exc.IllegalArgumentException):
+			# Bad Request error
+			self.response.write(str(exception))
+			self.response.set_status(400)
+		elif isinstance(exception, exc.IllegalStateException):
+			# Conflict error
+			self.response.write(str(exception))
+			self.response.set_status(409)
 		else:
+			# Internal Server errror
 			self.response.write("Something went wrong.")
 			self.response.set_status(500)
 
@@ -45,14 +54,11 @@ class BaseHandler(webapp2.RequestHandler):
 		self.response.headers['Content-Type'] = 'application/json'
 
 
-class CodeHandler(webapp2.RequestHandler):
+class CodeHandler(BaseHandler):
 	def get(self):
 		user = self.login()
 
-		try:
-			challenge = self.GAME.challenge(user.nickname())
-		except exc.IllegalStateException as ise:
-			raise webapp2.HTTPConflict(str(ise))
+		challenge = self.GAME.get_challenge(user.nickname())
 
 		self.write_json(challenge)
 
@@ -61,40 +67,34 @@ class CodeHandler(webapp2.RequestHandler):
 
 		post_data = json.loads(self.request.body)
 
-		try:
-			if 'solution' in post_data:
-				result = self.GAME.submit_answer(user.nickname(), post_data['solution'])
-			else:
-				raise webapp2.HTTPBadRequest("missing parameter 'solution'")
-		except exc.IllegalStateException as ise:
-			raise webapp2.HTTPConflict(str(ise))
+		if 'solution' in post_data:
+			result = self.GAME.submit_answer(user.nickname(), post_data['solution'])
+		else:
+			raise webapp2.HTTPBadRequest("missing parameter 'solution'")
 
 		self.write_json(result)
 
 
-class SeatHandler(webapp2.RequestHandler):
+class SeatHandler(BaseHandler):
 	def post(self, seat_num):
 		user = self.login()
 
 		post_data = json.loads(self.request.body)
 
-		try:
-			if "action" in post_data:
-				if post_data['action'] == 'sit':
-					self.GAME.add_user(user.nickname(), int(seat_num))
-				elif post_data['action'] == 'stand':
-					self.GAME.remove_user(user.nickname())
-				else:
-					raise webapp2.HTTPBadRequest("action must be 'sit' or 'stand'")
+		if "action" in post_data:
+			if post_data['action'] == 'sit':
+				seat = self.GAME.add_user(user.nickname(), int(seat_num))
+			elif post_data['action'] == 'stand':
+				seat = self.GAME.remove_user(user.nickname())
 			else:
-				raise webapp2.HTTPBadRequest("missing parameter 'action'")
-		except exc.IllegalStateException as ise:
-			raise webapp2.HTTPConflict(str(ise))
+				raise webapp2.HTTPBadRequest("action must be 'sit' or 'stand'")
+		else:
+			raise webapp2.HTTPBadRequest("missing parameter 'action'")
 
-		self.write_json(json.dumps({"result": "ok"}))
+		self.write_json(seat)
 
 
-class MainHandler(webapp2.RequestHandler):
+class MainHandler(BaseHandler):
 	def get(self):
 		self.login()
 
@@ -105,16 +105,13 @@ class MainHandler(webapp2.RequestHandler):
 
 		post_data = json.loads(self.request.body)
 
-		try:
-			if 'action' in post_data:
-				if post_data['action'] == 'start':
-					self.GAME.play()
-				else:
-					raise webapp2.HTTPBadRequest("action must be 'start'")
+		if 'action' in post_data:
+			if post_data['action'] == 'start':
+				self.GAME.play()
 			else:
-				raise webapp2.HTTPBadRequest("missing parameter 'action'")
-		except exc.IllegalStateException as ise:
-			raise webapp2.HTTPConflict(str(ise))
+				raise webapp2.HTTPBadRequest("action must be 'start'")
+		else:
+			raise webapp2.HTTPBadRequest("missing parameter 'action'")
 
 app = webapp2.WSGIApplication([
 	('/code', CodeHandler),

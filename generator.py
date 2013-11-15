@@ -5,7 +5,13 @@ import string
 
 class ProblemGenerator(object):
 	def __iter__(self):
-		yield CodingProblem("Write a function called 'foo' that takes one str argument and appends the string 'foo' to it.", "foo", lambda f: f("stuff") == "stufffoo")
+		yield CodingProblemAssignment(
+				CodingProblem(
+					"Write a function called 'foo' that takes one str argument and appends the string 'foo' to it.",
+					"foo",
+					lambda f: f("stuff") == "stufffoo"
+				)
+			)
 
 class CodingProblem(object):
 	def __init__(self, statement, expected_func, validator):
@@ -36,8 +42,9 @@ class CodingProblemAssignment(object):
 		self.solution = solution
 
 	def submit_solution(self, solution):
-		self.update_solution(solution)
-		return self.problem.valdiate(self.solution)
+		# wipe out solution on submit.
+		self.update_solution("")
+		return self.problem.valdiate(solution)
 
 	def screw_solution(self):
 		new_solution = ""
