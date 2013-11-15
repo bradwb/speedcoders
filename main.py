@@ -18,11 +18,13 @@ import sc_exceptions as exc
 import game
 
 import json
+import traceback
 
 from google.appengine.api import users
 import webapp2
 
 GAME = game.Table(seats=4, tokens=2)
+DEBUG = True
 
 class BaseHandler(webapp2.RequestHandler):
 	def handle_exception(self, exception, debug):
@@ -39,7 +41,10 @@ class BaseHandler(webapp2.RequestHandler):
 			self.response.set_status(409)
 		else:
 			# Internal Server errror
-			self.response.write("Something went wrong.")
+			if DEBUG:
+				self.response.write(traceback.format_exc())
+			else:
+				self.response.write("Something went wrong.")
 			self.response.set_status(500)
 
 	def login(self):
@@ -58,7 +63,7 @@ class CodeHandler(BaseHandler):
 	def get(self):
 		user = self.login()
 
-		challenge = self.GAME.get_challenge(user.nickname())
+		challenge = GAME.get_challenge(user.nickname())
 
 		self.write_json(challenge)
 
@@ -68,7 +73,7 @@ class CodeHandler(BaseHandler):
 		post_data = json.loads(self.request.body)
 
 		if 'solution' in post_data:
-			result = self.GAME.submit_answer(user.nickname(), post_data['solution'])
+			result = GAME.submit_answer(user.nickname(), post_data['solution'])
 		else:
 			raise webapp2.HTTPBadRequest("missing parameter 'solution'")
 
@@ -83,9 +88,9 @@ class SeatHandler(BaseHandler):
 
 		if "action" in post_data:
 			if post_data['action'] == 'sit':
-				seat = self.GAME.add_user(user.nickname(), int(seat_num))
+				seat = GAME.add_user(user.nickname(), int(seat_num))
 			elif post_data['action'] == 'stand':
-				seat = self.GAME.remove_user(user.nickname())
+				seat = GAME.remove_user(user.nickname())
 			else:
 				raise webapp2.HTTPBadRequest("action must be 'sit' or 'stand'")
 		else:
@@ -98,7 +103,7 @@ class MainHandler(BaseHandler):
 	def get(self):
 		self.login()
 
-		self.write_json(self.GAME.to_json())
+		self.write_json(GAME.to_json())
 
 	def post(self):
 		self.login()
@@ -107,11 +112,12 @@ class MainHandler(BaseHandler):
 
 		if 'action' in post_data:
 			if post_data['action'] == 'start':
-				self.GAME.play()
+				GAME.play()
 			else:
 				raise webapp2.HTTPBadRequest("action must be 'start'")
 		else:
 			raise webapp2.HTTPBadRequest("missing parameter 'action'")
+		self.write_json(GAME.to_json())
 
 app = webapp2.WSGIApplication([
 	('/code', CodeHandler),
