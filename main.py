@@ -115,8 +115,6 @@ class MainHandler(webapp2.RequestHandler):
 				raise webapp2.HTTPBadRequest("missing parameter 'action'")
 		except exc.IllegalStateException as ise:
 			raise webapp2.HTTPConflict(str(ise))
-		except exc.IllegalStateException as ise:
-			raise webapp2.HTTPConflict(str(ise))
 
 app = webapp2.WSGIApplication([
 	('/code', CodeHandler),
