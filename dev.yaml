@@ -175,23 +175,16 @@ handlers:
 
 # index files
 - url: /(.+)/
-  static_files: frontend/\1/index.html
-  upload: frontend/(.+)/index.html
-  expiration: "15m"
+  script: main.app
 
 - url: /(.+)
-  static_files: frontend/\1/index.html
-  upload: frontend/(.+)/index.html
-  expiration: "15m"
+  script: main.app
 
 # site root
 - url: /
   static_files: frontend/index.html
   upload: frontend/index.html
   expiration: "15m"
-
-- url: .*
-  script: main.app
 
 libraries:
 - name: webapp2

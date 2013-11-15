@@ -116,5 +116,5 @@ class MainHandler(BaseHandler):
 app = webapp2.WSGIApplication([
 	('/code', CodeHandler),
 	('/seats/(\d+)', SeatHandler),
-	('/', MainHandler),
+	('/game', MainHandler),
 ], debug=True)
