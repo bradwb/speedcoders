@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import sc_exceptions as exc
-import game
+from speedcoders import sc_exceptions as exc
+from speedcoders import game
 
 import json
 import traceback
