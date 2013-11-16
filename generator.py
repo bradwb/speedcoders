@@ -3,29 +3,30 @@
 import random
 import string
 
+import challenges
+
+class StaticProblemGenerator(object):
+	def __iter__(self):
+		while True:
+			yield CodingProblemAssignment(
+					challenges.CodingProblem(
+						"Write a function called 'foo' that takes one str argument and appends the string 'foo' to it.",
+						"foo",
+						lambda f: f("stuff") == "stufffoo"
+					)
+				)
+
 class ProblemGenerator(object):
 	def __iter__(self):
-		yield CodingProblemAssignment(
-				CodingProblem(
-					"Write a function called 'foo' that takes one str argument and appends the string 'foo' to it.",
-					"foo",
-					lambda f: f("stuff") == "stufffoo"
-				)
+		generators = (
+			iter(challenges.AppendProblemGenerator()),
+			iter(challenges.AdditionProblemGenerator()),
+			iter(challenges.SubstitutionProblemGenerator()),
+		)
+		while True:
+			yield CodingProblemAssignment(
+				next(random.choice(generators))
 			)
-
-class CodingProblem(object):
-	def __init__(self, statement, expected_func, validator):
-		self.statement = statement
-		self.expected_func = expected_func
-		self.validator = validator
-
-	def validate(self, solution):
-		try:
-			exec solution
-			self.validator(locals()[self.expected_func])
-		except:
-			return False
-		return True
 
 class CodingProblemAssignment(object):
 	SCREW_FACTOR = 0.05
@@ -44,7 +45,7 @@ class CodingProblemAssignment(object):
 	def submit_solution(self, solution):
 		# wipe out solution on submit.
 		self.update_solution("")
-		return self.problem.valdiate(solution)
+		return self.problem.validate(solution)
 
 	def screw_solution(self):
 		new_solution = ""
