@@ -1,5 +1,8 @@
 import random
-import string
+
+import word_generator
+
+WORD_GENERATOR = word_generator.load("word_gen4.pickle")
 
 class CodingProblem(object):
 	def __init__(self, statement, expected_func, validator):
@@ -25,14 +28,8 @@ class IfStatement(object):
 	def __str__(self):
 		return self.statement
 
-def random_string(min_size=1, max_size=10, uppercase=True):
-	if uppercase:
-		chars = string.ascii_letters
-	else:
-		chars = string.ascii_lowercase
-
-	size = random.randint(min_size, max_size)
-	return "".join([random.choice(chars) for idx in xrange(size)])
+def random_string():
+	return WORD_GENERATOR.generate_word()
 
 def validator(validator_gen, test_cases):
 	validators = []
@@ -101,7 +98,7 @@ class UnlessSubstrIf(object):
 			)
 
 class IfSubstrIf(object):
-	STATEMENT_TEMPLATE = "unless the string contains the substr '{substr}'"
+	STATEMENT_TEMPLATE = "if the string contains the substr '{substr}'"
 
 	def values(self):
 		return {
@@ -122,8 +119,8 @@ class AppendProblemGenerator(object):
 
 	def values(self):
 		return {
-			"func_name": random_string(10, 20),
-			"append": random_string(10, 20)
+			"func_name": random_string(),
+			"append": random_string()
 		}
 
 	def __iter__(self):
