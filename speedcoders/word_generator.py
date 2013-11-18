@@ -90,11 +90,6 @@ class WordGenerator(object):
 			next_letter = self.probs[word[idx:idx+self.ngram_size]].generate_letter()
 		return word
 
-if __name__ == "__main__":
-	ngrams = 3
-	wordlist = open("/usr/share/dict/words").readlines()
-	wordlist = [word.strip() for word in wordlist if all(c in string.ascii_lowercase for c in word.strip())]
-	w = WordGenerator(wordlist, ngrams)
-	w.finalize_probabilities()
+def load(filename):
+	return cPickle.load(open(filename, "rb"))
 
-	cPickle.dump(w, open("word_gen{0}.pickle".format(ngrams), "w"), -1)
