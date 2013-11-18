@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import cPickle
 import random
 import string
 from itertools import tee, izip
@@ -11,6 +12,8 @@ def window(iterable, size):
 	return izip(*iters)
 
 class NGram(object):
+	END_OF_WORD = 26
+
 	def __init__(self, ngram):
 		self.ngram = ngram
 		self.count = 0
@@ -29,10 +32,10 @@ class NGram(object):
 		while sum_so_far < val:
 			idx += 1
 			sum_so_far += self.next_letter_probs[idx]
-		if idx == 26:
+		if idx == self.END_OF_WORD:
 			return None
 		return string.ascii_lowercase[idx]
-		
+
 
 class WordGenerator(object):
 	def __init__(self, word_list, ngram_size=2):
@@ -56,12 +59,13 @@ class WordGenerator(object):
 				# previous ngram.
 				last_ngram.next_letter_probs[ord(ngram[-1]) - ord('a')] += 1
 			else:
-				# this is the first twogram in the word, so record it as such
-				self.probs[ngram].first_prob += 1		
+				# this is the first ngram in the word, so record it as such
+				self.probs[ngram].first_prob += 1
 			last_ngram = self.probs[ngram]
 			last_ngram.count += 1
 		if last_ngram:
-			last_ngram.next_letter_probs[26] += 1
+			# indicate that the last ngram was followed by the end of the word.
+			last_ngram.next_letter_probs[NGram.END_OF_WORD] += 1
 
 	def finalize_probabilities(self):
 		for ngram in self.probs:
@@ -75,7 +79,7 @@ class WordGenerator(object):
 			ngram = next(ngram_iter)
 			sum_so_far += ngram.first_prob
 		return ngram.ngram
-	
+
 	def generate_word(self):
 		word = self.generate_first_ngram()
 		idx = 0
@@ -87,10 +91,10 @@ class WordGenerator(object):
 		return word
 
 if __name__ == "__main__":
+	ngrams = 3
 	wordlist = open("/usr/share/dict/words").readlines()
 	wordlist = [word.strip() for word in wordlist if all(c in string.ascii_lowercase for c in word.strip())]
-	w = WordGenerator(wordlist, 3)
+	w = WordGenerator(wordlist, ngrams)
 	w.finalize_probabilities()
 
-	import pickle
-	pickle.dump(w, open("word_gen.pickle", "w"))
+	cPickle.dump(w, open("word_gen{0}.pickle".format(ngrams), "w"), -1)
