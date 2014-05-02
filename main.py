@@ -116,7 +116,7 @@ class MainHandler(BaseHandler):
 		self.write_json(GAME.to_json())
 
 	def post(self):
-		self.login()
+		user = self.login()
 		if not user:
 			return;
 

@@ -5,6 +5,8 @@ import string
 
 from word_generator import WordGenerator
 
+#Generate and pickle a WordGenerator for fast loading later
+
 ngrams = 3
 wordlist = open("/usr/share/dict/words").readlines()
 wordlist = [word.strip() for word in wordlist if all(c in string.ascii_lowercase for c in word.strip())]
